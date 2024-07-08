@@ -22,7 +22,11 @@ export default function Slide2() {
 
   return (
     <>
-      <div className="relative bg-black min-h-screen text-white overflow-hidden z-50">
+      <div
+        className={`relative bg-black min-h-screen text-white overflow-hidden z-50 ${
+          imagesLoaded ? "" : "cursor-loading"
+        }`}
+      >
         {/* Top Line */}
         <div className="absolute top-0 left-0 w-[calc(100vw-2rem)] m-4 z-50">
           <div className="bg-white h-[1px]"></div>
