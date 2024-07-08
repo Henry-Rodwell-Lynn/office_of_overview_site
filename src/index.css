@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "neue-haas-grotesk-text", sans-serif;
+  font-style: normal;
+}
