@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Slide5() {
   // Parent variant to control staggered animation
@@ -23,6 +24,17 @@ export default function Slide5() {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0 },
   };
+
+  // State to track if all media are loaded
+  const [mediaLoaded, setMediaLoaded] = useState({ image1: false, image2: false, video: false });
+
+  // Function to update the media loaded state
+  const handleMediaLoad = (mediaName: string) => {
+    setMediaLoaded((prev) => ({ ...prev, [mediaName]: true }));
+  };
+
+  // Determine if all media are loaded
+  const allMediaLoaded = Object.values(mediaLoaded).every(Boolean);
 
   return (
     <>
@@ -49,18 +61,35 @@ export default function Slide5() {
         {/* Content */}
         <motion.div
           initial="hidden"
-          animate="visible"
+          animate={allMediaLoaded ? "visible" : "hidden"}
           variants={containerVariants}
           className="flex justify-center items-center h-[calc(100vh-2rem)] gap-[10rem]"
         >
           <motion.a variants={childVariants}>
-            <img src="/image1.gif" className="w-[25vw]" />
+            <img
+              src="/image1.gif"
+              className="w-[25vw]"
+              onLoad={() => handleMediaLoad("image1")}
+              style={{ display: mediaLoaded.image1 ? "block" : "none" }}
+            />
           </motion.a>
           <motion.a variants={childVariants}>
-            <img src="/ep.gif" className="w-[25vw]" />
+            <img
+              src="/ep.gif"
+              className="w-[25vw]"
+              onLoad={() => handleMediaLoad("image2")}
+              style={{ display: mediaLoaded.image2 ? "block" : "none" }}
+            />
           </motion.a>
           <motion.a variants={childVariants}>
-            <video autoPlay muted loop className="w-[25vw] rounded-xl">
+            <video
+              autoPlay
+              muted
+              loop
+              className="w-[25vw] rounded-xl"
+              onCanPlayThrough={() => handleMediaLoad("video")}
+              style={{ display: mediaLoaded.video ? "block" : "none" }}
+            >
               <source
                 src="/videos/Sequence 01.mp4"
                 type="video/mp4"

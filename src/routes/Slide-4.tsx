@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Slide4() {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   return (
     <>
       <div className="relative bg-[#dddddd] min-h-screen text-black overflow-hidden z-50">
@@ -26,17 +29,19 @@ export default function Slide4() {
         {/* Content */}
         <motion.div
           initial={{ opacity: 0, scale: 1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay:0.2}}
+          animate={isImageLoaded ? { opacity: 1, scale: 1 } : { opacity: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
           className="flex justify-center items-center h-screen"
         >
-          <motion.a className="w-full h-full object-cover">
+          <motion.div className="w-full h-full object-cover">
             <img
               src="/ipad.png"
               className="object-cover object-center w-full h-full"
               alt="iPad"
+              onLoad={() => setIsImageLoaded(true)}
+              style={{ display: isImageLoaded ? "block" : "none" }}
             />
-          </motion.a>
+          </motion.div>
         </motion.div>
       </div>
     </>

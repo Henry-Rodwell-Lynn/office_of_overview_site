@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Slide3() {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   return (
     <>
       <div className="relative bg-[#ffffff] min-h-screen text-black overflow-hidden z-50">
@@ -26,13 +29,21 @@ export default function Slide3() {
         {/* Content */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          
+          animate={isImageLoaded ? { opacity: 1, scale: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, ease: [0, 0.9, 0.2, 1.01] }}
           className="flex justify-center items-center h-[calc(100vh-2rem)]"
         >
-          <motion.a whileHover={{ scale: 1.1 }} href="https://youtu.be/mxe3JX93QdY?si=BA6mtL-2twzggG0m&t=493" target="_blank">
-            <img src="/EH.png" className="h-[500px] rounded-xl" />
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            href="https://youtu.be/mxe3JX93QdY?si=BA6mtL-2twzggG0m&t=493"
+            target="_blank"
+          >
+            <img
+              src="/EH.png"
+              className="h-[500px] rounded-xl"
+              onLoad={() => setIsImageLoaded(true)}
+              style={{ display: isImageLoaded ? "block" : "none" }}
+            />
           </motion.a>
         </motion.div>
       </div>

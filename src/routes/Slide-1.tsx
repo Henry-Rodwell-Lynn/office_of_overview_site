@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Slide1() {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   return (
     <>
       <div className="relative bg-black min-h-screen text-white overflow-hidden">
@@ -26,12 +29,18 @@ export default function Slide1() {
         {/* Content */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={isImageLoaded ? { opacity: 1, scale: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, ease: [0, 0.9, 0.2, 1.01] }}
           whileHover={{ scale: 8 }}
           className="absolute left-[20%] top-[40%]"
         >
-          <img src="/Cowboy.JPEG" alt="Sparkles" className="flex h-[50px]" />
+          <img
+            src="/Cowboy.JPEG"
+            alt="Sparkles"
+            className="flex h-[50px]"
+            onLoad={() => setIsImageLoaded(true)}
+            style={{ display: isImageLoaded ? "block" : "none" }}
+          />
         </motion.div>
 
         <motion.div
