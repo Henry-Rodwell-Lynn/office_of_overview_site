@@ -22,11 +22,7 @@ export default function Slide2() {
 
   return (
     <>
-      <div
-        className={`relative bg-black min-h-screen text-white overflow-hidden z-50 ${
-          imagesLoaded ? "" : "cursor-loading"
-        }`}
-      >
+      <div className="relative bg-black min-h-screen text-white overflow-hidden z-50">
         {/* Top Line */}
         <div className="absolute top-0 left-0 w-[calc(100vw-2rem)] m-4 z-50">
           <div className="bg-white h-[1px]"></div>
@@ -52,7 +48,9 @@ export default function Slide2() {
             transition={{ duration: 0.5, ease: [0, 0.9, 0.2, 1.01] }}
             className="text-center"
           >
-            <a className="text-xl">(drag mouse)</a>
+            <a className="text-xl">
+              {imagesLoaded ? "(drag mouse)" : "Loading..."}
+            </a>
           </motion.div>
         </div>
         <div className="relative items">

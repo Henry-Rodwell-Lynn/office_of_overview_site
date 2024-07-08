@@ -53,7 +53,7 @@ export default function Slide6() {
           variants={childVariants}
           className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-end rounded-lg col-span-2"
         >
-          <video autoPlay muted loop className="h-full w-auto rounded-lg object-cover">
+          <video autoPlay muted loop className="h-auto w-auto rounded-lg object-cover">
             <source src="/videos/TD Video 1.webm" type="video/mp4" />
           </video>
         </motion.div>
@@ -62,7 +62,7 @@ export default function Slide6() {
           variants={childVariants}
           className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center col-span-2 justify-end rounded-lg"
         >
-          <img src="/ipad.png" className="h-full w-full object-cover rounded-lg"/>
+          <img src="/TMC2 B.png" className="h-full w-full object-cover rounded-lg"/>
         </motion.div>
 
         <motion.div
@@ -76,10 +76,10 @@ export default function Slide6() {
 
         <motion.div
           variants={childVariants}
-          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-end col-span-4"
+          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-end col-span-2 rounded-lg"
         >
-          <video autoPlay muted loop className="h-full w-auto object-contain">
-            <source src="" type="video/mp4" />
+          <video autoPlay muted loop className="h-auto w-auto object-contain">
+            <source src="/videos/Comp 2.webm" type="video/mp4" />
           </video>
         </motion.div>
 
@@ -110,17 +110,17 @@ export default function Slide6() {
 
         <motion.div
           variants={childVariants}
-          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-end rounded-lg col-span-2"
+          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-end rounded-lg col-span-3"
         >
           <img src="/ipad.png" />
         </motion.div>
 
         <motion.div
           variants={childVariants}
-          className="h-[calc(30vh-2rem)] w-[calc(30vh-2rem)] overflow-hidden flex items-center justify-start rounded-lg col-span-2 object-contain"
+          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-start rounded-lg col-span-3 object-contain"
         >
           <a>
-            <img src="/fill-1.png" className="object-contain w-auto h-full" />
+            <img src="/fill-1.png" className="object-contain w-auto h-auto" />
           </a>
         </motion.div>
       </motion.div>
