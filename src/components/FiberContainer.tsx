@@ -42,10 +42,10 @@ export function FiberContainer() {
         Amount: { value: 0, min: 0, max: 10, step: 0.1 },
       }),
       Noise: folder({
-        Opacity: { value: 0.3, min: 0, max: 1.0, step: 0.01 },
+        Opacity: { value: 0.1, min: 0, max: 1.0, step: 0.01 },
       }),
       Blur: folder({
-        Blur_Amount: { value: 10, min: 0, max: 20, step: 1.0 },
+        Blur_Amount: { value: 4, min: 0, max: 20, step: 1.0 },
       }),
     });
 
@@ -73,9 +73,9 @@ export function FiberContainer() {
   return (
     <div style={{ background: Background }} className="justify-self-center absolute h-full w-full">
       <div className="h-full z-0">
-        <Canvas onCreated={() => setIsCanvasReady(true)} camera={{ position: [10, 0, 0], fov: 12 }}>
+        <Canvas onCreated={() => setIsCanvasReady(true)} camera={{ position: [40, 0, 0], fov: 12 }}>
           <Scene colors={colors} brightnessThresholds={brightnessThresholds} />
-          <OrbitControls minDistance={5} maxDistance={20} enablePan={false} enableRotate={true} />
+          <OrbitControls minDistance={10} maxDistance={80} enablePan={false} enableRotate={true} />
           <EffectComposer enabled={true}>
             <Bloom
               luminanceThreshold={Threshold}

@@ -17,7 +17,7 @@ export const Scene = ({ colors, brightnessThresholds }: SceneProps) => {
   useFrame(() => {
     const { current: group } = refLogo;
     if (group) {
-     group.rotation.y += 0.002;
+     group.rotation.y += 0.009;
     }
   });
 

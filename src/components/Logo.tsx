@@ -10,7 +10,7 @@ interface LogoProps {
 }
 
 export const Logo = forwardRef<any, LogoProps>((props, ref) => {
-  const { nodes, animations } = useGLTF("./SL_Test2.glb") as any;
+  const { nodes, animations } = useGLTF("./ooo.glb") as any;
   const meshRef = useRef(null);
   const { actions } = useAnimations(animations, meshRef) as any;
 
@@ -24,9 +24,6 @@ export const Logo = forwardRef<any, LogoProps>((props, ref) => {
   useEffect(() => {
     if (actions.CurveAction) actions.CurveAction.play();
     if (actions.Curve001Action) actions.Curve001Action.play();
-    if (actions.Curve002Action) actions.Curve002Action.play();
-    if (actions.Curve003Action) actions.Curve003Action.play();
-    if (actions.Curve004Action) actions.Curve004Action.play();
   }, [actions]);
 
   return (
@@ -37,9 +34,9 @@ export const Logo = forwardRef<any, LogoProps>((props, ref) => {
           castShadow
           receiveShadow
           geometry={nodes.Curve.geometry}
-          position={[1, -1.1, 0.191]}
-          rotation={[Math.PI / 2, -0.143, 0]}
-          scale={13.14}
+          position={[-0.013, 0.001, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={110.694}
         >
           <shaderMaterial attach="material" {...ToonShader} />
         </mesh>
@@ -48,9 +45,9 @@ export const Logo = forwardRef<any, LogoProps>((props, ref) => {
           castShadow
           receiveShadow
           geometry={nodes.Curve001.geometry}
-          position={[1, -1.1, 0.191]}
-          rotation={[Math.PI / 2, -0.105, 0]}
-          scale={13.14}
+          position={[2.723, 0.066, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={110.694}
         >
           <shaderMaterial attach="material" {...ToonShader} />
         </mesh>
@@ -59,9 +56,9 @@ export const Logo = forwardRef<any, LogoProps>((props, ref) => {
           castShadow
           receiveShadow
           geometry={nodes.Curve002.geometry}
-          position={[1, -1.1, 0.191]}
+          position={[-2.714, 0.063, 0]}
           rotation={[Math.PI / 2, 0, 0]}
-          scale={13.14}
+          scale={110.694}
         >
           <shaderMaterial attach="material" {...ToonShader} />
         </mesh>
@@ -70,9 +67,9 @@ export const Logo = forwardRef<any, LogoProps>((props, ref) => {
           castShadow
           receiveShadow
           geometry={nodes.Curve003.geometry}
-          position={[1, -1.1, 0.191]}
+          position={[-0.28, 0.021, 0]}
           rotation={[Math.PI / 2, 0, 0]}
-          scale={13.14}
+          scale={110.694}
         >
           <shaderMaterial attach="material" {...ToonShader} />
         </mesh>
@@ -80,10 +77,54 @@ export const Logo = forwardRef<any, LogoProps>((props, ref) => {
           name="Curve004"
           castShadow
           receiveShadow
-          geometry={nodes.Curve004.geometry}
-          position={[1, -1.1, 0.191]}
-          rotation={[Math.PI / 2, -0.122, 0]}
-          scale={13.14}
+          geometry={nodes.Curve005.geometry}
+          position={[-1.066, -0.052, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={110.694}
+        >
+          <shaderMaterial attach="material" {...ToonShader} />
+        </mesh>
+        <mesh
+          name="Curve005"
+          castShadow
+          receiveShadow
+          geometry={nodes.Curve005.geometry}
+          position={[1.729, -0.052, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={110.694}
+        >
+          <shaderMaterial attach="material" {...ToonShader} />
+        </mesh>
+        <mesh
+          name="Curve006"
+          castShadow
+          receiveShadow
+          geometry={nodes.Curve006.geometry}
+          position={[0.492, 0.106, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={110.694}
+        >
+          <shaderMaterial attach="material" {...ToonShader} />
+        </mesh>
+        <mesh
+          name="Curve007"
+          castShadow
+          receiveShadow
+          geometry={nodes.Curve007.geometry}
+          position={[-1.883, 0.207, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={110.694}
+        >
+          <shaderMaterial attach="material" {...ToonShader} />
+        </mesh>
+        <mesh
+          name="Curve008"
+          castShadow
+          receiveShadow
+          geometry={nodes.Curve008.geometry}
+          position={[1.106, 0.02, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={110.694}
         >
           <shaderMaterial attach="material" {...ToonShader} />
         </mesh>

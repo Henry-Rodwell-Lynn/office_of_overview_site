@@ -18,6 +18,8 @@ import Slide8 from './routes/Slide-8';
 import Slide9 from './routes/Slide-9';
 import Slide10 from './routes/Slide-10';
 import Slide11 from './routes/Slide-11';
+import Slide12 from './routes/Slide-12';
+import Slide13 from './routes/Slide-13';
 
 const router = createBrowserRouter([
   {
@@ -68,6 +70,14 @@ const router = createBrowserRouter([
   {
     path: "Slide-11",
     element: <Slide11 />
+  },
+  {
+    path: "Slide-12",
+    element: <Slide12 />
+  },
+  {
+    path: "Slide-13",
+    element: <Slide13 />
   },
 ]);
 

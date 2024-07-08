@@ -47,29 +47,29 @@ export default function Slide6() {
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="grid m-5 mt-7 w-[clac(100vw-2rem)] grid-cols-8 h-[calc(100vh-6rem)] items-center gap-4"
+        className="grid m-5 mt-7 w-[calc(100vw-2rem)] grid-cols-8 h-[calc(100vh-6rem)] items-center gap-4"
       >
         <motion.div
           variants={childVariants}
-          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-end   rounded-lg col-span-2"
+          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-end rounded-lg col-span-2"
         >
-          <video autoPlay muted loop className="h-full w-auto rounded-lg">
+          <video autoPlay muted loop className="h-full w-auto rounded-lg object-cover">
             <source src="/videos/TD Video 1.webm" type="video/mp4" />
           </video>
         </motion.div>
 
         <motion.div
           variants={childVariants}
-          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center col-span-2 justify-end   rounded-lg"
+          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center col-span-2 justify-end rounded-lg"
         >
-          <img src="/ipad.png" />
+          <img src="/ipad.png" className="h-full w-full object-cover rounded-lg"/>
         </motion.div>
 
         <motion.div
           variants={childVariants}
-          className="h-[calc(60vh-1.5rem)] w-auto overflow-hidden flex items-center justify-start col-span-4 row-span-2"
+          className="h-[calc(60vh-1rem)] w-full overflow-hidden flex items-center justify-start col-span-4 row-span-2 rounded-lg"
         >
-          <video autoPlay muted loop className="h-full w-auto">
+          <video autoPlay muted loop className="h-full w-full object-cover rounded-lg">
             <source src="/videos/tmc2.mkv" type="video/mp4" />
           </video>
         </motion.div>
@@ -79,7 +79,7 @@ export default function Slide6() {
           className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-end col-span-4"
         >
           <video autoPlay muted loop className="h-full w-auto object-contain">
-            <source src="/videos/TD2 - Trim.mkv" type="video/mp4" />
+            <source src="" type="video/mp4" />
           </video>
         </motion.div>
 
@@ -110,14 +110,14 @@ export default function Slide6() {
 
         <motion.div
           variants={childVariants}
-          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-end   rounded-lg col-span-2"
+          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-end rounded-lg col-span-2"
         >
           <img src="/ipad.png" />
         </motion.div>
 
         <motion.div
           variants={childVariants}
-          className="h-[calc(30vh-2rem)] w-[calc(30vh-2rem)] overflow-hidden flex items-center justify-start   rounded-lg col-span-2 object-contain"
+          className="h-[calc(30vh-2rem)] w-[calc(30vh-2rem)] overflow-hidden flex items-center justify-start rounded-lg col-span-2 object-contain"
         >
           <a>
             <img src="/fill-1.png" className="object-contain w-auto h-full" />
