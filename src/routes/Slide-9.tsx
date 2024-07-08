@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Slide9() {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
   // Parent variant to control staggered animation
   const containerVariants = {
     hidden: {
@@ -26,7 +29,7 @@ export default function Slide9() {
 
   return (
     <>
-      <div className="relative bg-[black] min-h-screen text-white overflow-hidden z-50">
+      <div className="relative bg-black min-h-screen text-white overflow-hidden z-50">
         {/* Top Line */}
         <div className="absolute top-0 left-0 w-[calc(100vw-2rem)] m-4 z-50">
           <div className="bg-white h-[1px]"></div>
@@ -49,16 +52,20 @@ export default function Slide9() {
         {/* Content */}
         <motion.div
           initial="hidden"
-          animate="visible"
+          animate={isVideoLoaded ? "visible" : "hidden"}
           variants={containerVariants}
           className="flex justify-center items-center h-[calc(100vh-2rem)] gap-[10rem]"
         >
           <motion.a variants={childVariants}>
-            <video autoPlay muted loop className="h-[75vh] rounded-xl">
-              <source
-                src="/videos/ToonShader-SQ.mp4"
-                type="video/mp4"
-              />
+            <video
+              autoPlay
+              muted
+              loop
+              className="h-[75vh] rounded-xl"
+              onLoadedData={() => setIsVideoLoaded(true)}
+              style={{ display: isVideoLoaded ? "block" : "none" }}
+            >
+              <source src="/videos/ToonShader-SQ.mp4" type="video/mp4" />
             </video>
           </motion.a>
         </motion.div>
