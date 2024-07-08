@@ -20,7 +20,7 @@ const ImageTrail: React.FC = () => {
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       // Determine next media to be shown
-      const mediaType = mediaIndex <= 12 ? "png" : "gif"; // Example: switch between png and gif
+      const mediaType = mediaIndex <= 12 ? "webp" : "gif"; // Example: switch between png and gif
       const mediaSrc = `${MEDIA_FOLDER}/img${mediaIndex}.${mediaType}`;
 
       // Update position of the latest item to mouse coordinates
@@ -66,7 +66,7 @@ const ImageTrail: React.FC = () => {
             style={{ left: item.x, top: item.y, zIndex: index }} // Ensure latest item is on top
             className="absolute w-[300px] h-[300px] pointer-events-none"
           >
-            {item.src.toLowerCase().endsWith(".png") ||
+            {item.src.toLowerCase().endsWith(".webp") ||
             item.src.toLowerCase().endsWith(".jpg") ||
             item.src.toLowerCase().endsWith(".jpeg") ? (
               <img src={item.src} alt="" className="w-full h-full object-contain" />

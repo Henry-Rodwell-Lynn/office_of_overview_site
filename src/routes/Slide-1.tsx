@@ -35,7 +35,7 @@ export default function Slide1() {
           className="absolute left-[20%] top-[40%]"
         >
           <img
-            src="/Cowboy.JPEG"
+            src="/Cowboy.webp"
             alt="Sparkles"
             className="flex h-[50px]"
             onLoad={() => setIsImageLoaded(true)}
@@ -50,7 +50,7 @@ export default function Slide1() {
           whileHover={{ scale: 8 }}
           className="absolute left-[80%] top-[20%]"
         >
-          <img src="/Noddy.JPEG" alt="Sparkles" className="flex h-[50px]" />
+          <img src="/Noddy.webp" alt="Sparkles" className="flex h-[50px]" />
         </motion.div>
 
         <motion.div
@@ -60,7 +60,7 @@ export default function Slide1() {
           whileHover={{ scale: 8 }}
           className="absolute left-[10%] top-[70%]"
         >
-          <img src="/bow.JPEG" alt="Sparkles" className="flex h-[50px]" />
+          <img src="/bow.webp" alt="Sparkles" className="flex h-[50px]" />
         </motion.div>
 
         <motion.div
@@ -70,7 +70,7 @@ export default function Slide1() {
           whileHover={{ scale: 8 }}
           className="absolute left-[90%] top-[60%]"
         >
-          <img src="/Pizza.JPEG" alt="Sparkles" className="flex h-[50px]" />
+          <img src="/Pizza.webp" alt="Sparkles" className="flex h-[50px]" />
         </motion.div>
 
         <motion.div
@@ -80,7 +80,7 @@ export default function Slide1() {
           whileHover={{ scale: 8 }}
           className="absolute left-[44%] top-[8%]"
         >
-          <img src="/post-run.JPEG" alt="Sparkles" className="flex h-[50px]" />
+          <img src="/post-run.webp" alt="Sparkles" className="flex h-[50px]" />
         </motion.div>
 
         <motion.div
@@ -90,7 +90,7 @@ export default function Slide1() {
           whileHover={{ scale: 8 }}
           className="absolute left-[66%] top-[80%]"
         >
-          <img src="/stars.JPEG" alt="Sparkles" className="flex h-[50px]" />
+          <img src="/stars.webp" alt="Sparkles" className="flex h-[50px]" />
         </motion.div>
       </div>
     </>
