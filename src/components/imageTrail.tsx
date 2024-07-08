@@ -15,46 +15,26 @@ const TOTAL_IMAGES = 12; // Total number of images in the folder
 
 const ImageTrail: React.FC = () => {
   const [items, setItems] = useState<MediaItem[]>([]);
-  const [currentlyPlaying, setCurrentlyPlaying] = useState(false);
+  const [mediaIndex, setMediaIndex] = useState(1);
 
   useEffect(() => {
-    let mediaIndex = 1;
-
-    const fetchNextMedia = () => {
+    const handleMouseMove = (event: MouseEvent) => {
+      // Determine next media to be shown
       const mediaType = mediaIndex <= 12 ? "png" : "gif"; // Example: switch between png and gif
       const mediaSrc = `${MEDIA_FOLDER}/img${mediaIndex}.${mediaType}`;
 
-      // Preload media
-      const media = new Image();
-      media.src = mediaSrc;
-
+      // Update position of the latest item to mouse coordinates
       const newItem: MediaItem = {
         id: Date.now(),
-        x: 0, // Set initial position at (0, 0); adjust as needed
-        y: 0,
+        x: event.pageX - IMAGE_SIZE / 2,
+        y: event.pageY - IMAGE_SIZE / 2,
         src: mediaSrc,
       };
 
-      setItems((prevItems) => {
-        // Append latest item to the end, ensuring it's rendered on top
-        const updatedItems = [...prevItems, newItem].slice(-MAX_ITEMS);
-        return updatedItems;
-      });
+      setItems((prevItems) => [...prevItems, newItem].slice(-MAX_ITEMS));
 
-      mediaIndex = (mediaIndex % TOTAL_IMAGES) + 1; // Cycle through all images
-    };
-
-    const handleMouseMove = (event: MouseEvent) => {
-      fetchNextMedia();
-      // Update position of latest item to mouse coordinates
-      setItems((prevItems) =>
-        prevItems.map((item, index) => {
-          if (index === prevItems.length - 1) {
-            return { ...item, x: event.pageX - IMAGE_SIZE / 2, y: event.pageY - IMAGE_SIZE / 2 };
-          }
-          return item;
-        })
-      );
+      // Cycle through all images
+      setMediaIndex((prevIndex) => (prevIndex % TOTAL_IMAGES) + 1);
     };
 
     document.addEventListener("mousemove", handleMouseMove);
@@ -62,17 +42,16 @@ const ImageTrail: React.FC = () => {
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []); // Empty dependency array ensures this effect runs only once
+  }, [mediaIndex]); // Dependency on mediaIndex to update media source
 
   useEffect(() => {
-    if (items.length > 0 && !currentlyPlaying) {
-      setCurrentlyPlaying(true);
-      setTimeout(() => {
+    if (items.length > 0) {
+      const timer = setTimeout(() => {
         setItems((prevItems) => prevItems.slice(1)); // Remove the oldest item
-        setCurrentlyPlaying(false);
       }, 400);
+      return () => clearTimeout(timer);
     }
-  }, [items, currentlyPlaying]);
+  }, [items]);
 
   return (
     <div className="relative">

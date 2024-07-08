@@ -1,7 +1,25 @@
 import ImageTrail from "../components/imageTrail";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Slide2() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    // Preload images
+    const imagePromises = Array.from({ length: 12 }, (_, i) => {
+      const img = new Image();
+      img.src = `/aboutMe/img${i + 1}.png`;
+      return new Promise((resolve) => {
+        img.onload = resolve;
+        img.onerror = resolve;
+      });
+    });
+
+    // Once all images are preloaded, set the state to true
+    Promise.all(imagePromises).then(() => setImagesLoaded(true));
+  }, []);
+
   return (
     <>
       <div className="relative bg-black min-h-screen text-white overflow-hidden z-50">
@@ -34,7 +52,7 @@ export default function Slide2() {
           </motion.div>
         </div>
         <div className="relative items">
-          <ImageTrail />
+          {imagesLoaded && <ImageTrail />}
         </div>
       </div>
     </>
