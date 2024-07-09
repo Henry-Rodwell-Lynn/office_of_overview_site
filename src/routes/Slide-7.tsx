@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Slide7() {
+  const [videosLoaded, setVideosLoaded] = useState([false, false, false, false]);
+
   const containerVariants = {
     hidden: {
       opacity: 0,
@@ -22,6 +25,16 @@ export default function Slide7() {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0 },
   };
+
+  const handleVideoLoad = (index: number) => {
+    setVideosLoaded((prev) => {
+      const newVideosLoaded = [...prev];
+      newVideosLoaded[index] = true;
+      return newVideosLoaded;
+    });
+  };
+
+  const allVideosLoaded = videosLoaded.every(Boolean);
 
   return (
     <div className="relative bg-black min-h-screen text-white overflow-hidden z-50">
@@ -45,16 +58,22 @@ export default function Slide7() {
       {/* Content */}
       <motion.div
         initial="hidden"
-        animate="visible"
+        animate={allVideosLoaded ? "visible" : "hidden"}
         variants={containerVariants}
-        className="grid m-5 mt-7 w-[clac(100vw-2rem)] grid-cols-4 h-[calc(100vh-6rem)] items-center gap-4 "
+        className="grid m-5 mt-7 w-[calc(100vw-2rem)] grid-cols-4 h-[calc(100vh-6rem)] items-center gap-4"
       >
         <motion.div
           variants={childVariants}
           className="h-[calc(50vh-4rem)] w-auto overflow-hidden flex items-center justify-end col-span-2"
         >
-          <video autoPlay muted loop className="h-full w-auto object-contain">
-            <source src="/videos/tmc2.mkv" type="video/mp4" />
+          <video
+            autoPlay
+            muted
+            loop
+            className="h-full w-auto object-cover"
+            onLoadedData={() => handleVideoLoad(0)}
+          >
+            <source src="/videos/tmc2.webm" type="video/mp4" />
           </video>
         </motion.div>
 
@@ -62,8 +81,14 @@ export default function Slide7() {
           variants={childVariants}
           className="h-[calc(50vh-4rem)] w-auto overflow-hidden flex items-center justify-start col-span-2"
         >
-          <video autoPlay muted loop className="h-full w-auto object-contain">
-            <source src="/videos/pyrsos.mkv" type="video/mp4" />
+          <video
+            autoPlay
+            muted
+            loop
+            className="h-full w-auto object-cover"
+            onLoadedData={() => handleVideoLoad(1)}
+          >
+            <source src="/videos/pyrsos.webm" type="video/mp4" />
           </video>
         </motion.div>
 
@@ -71,8 +96,14 @@ export default function Slide7() {
           variants={childVariants}
           className="h-[calc(50vh-4rem)] w-auto overflow-hidden flex items-center justify-end col-span-2"
         >
-          <video autoPlay muted loop className="h-full w-auto object-contain">
-            <source src="/videos/leopard.mkv" type="video/mp4" />
+          <video
+            autoPlay
+            muted
+            loop
+            className="h-full w-auto object-cover"
+            onLoadedData={() => handleVideoLoad(2)}
+          >
+            <source src="/videos/leopard.webm" type="video/mp4" />
           </video>
         </motion.div>
 
@@ -80,8 +111,14 @@ export default function Slide7() {
           variants={childVariants}
           className="h-[calc(50vh-4rem)] w-auto overflow-hidden flex items-center justify-start col-span-2"
         >
-          <video autoPlay muted loop className="h-full w-auto object-contain">
-            <source src="/videos/curait.mkv" type="video/mp4" />
+          <video
+            autoPlay
+            muted
+            loop
+            className="h-full w-auto object-cover"
+            onLoadedData={() => handleVideoLoad(3)}
+          >
+            <source src="/videos/curait.webm" type="video/mp4" />
           </video>
         </motion.div>
       </motion.div>

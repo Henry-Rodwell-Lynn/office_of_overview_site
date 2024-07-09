@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Slide8() {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   return (
     <>
       <div className="relative bg-[#1A1A1A] min-h-screen text-black overflow-hidden z-50">
@@ -26,7 +29,7 @@ export default function Slide8() {
         {/* Content */}
         <motion.div
           initial={{ opacity: 0, scale: 1 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={isImageLoaded ? { opacity: 1, scale: 1 } : { opacity: 0 }}
           transition={{ duration: 1, delay:0.2}}
           className="flex justify-center items-center h-screen"
         >
@@ -34,6 +37,8 @@ export default function Slide8() {
             <img
               src="/Mockup.png"
               className="object-cover object-center w-full h-full"
+              onLoad={() => setIsImageLoaded(true)}
+              style={{ display: isImageLoaded ? "block" : "none" }}
               alt="iPad"
             />
           </motion.a>
