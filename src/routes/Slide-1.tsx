@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import MeCanvas from "../components/me";
 
 export default function Slide1() {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -27,6 +28,10 @@ export default function Slide1() {
         </div>
 
         {/* Content */}
+        <div className="flex justify-center items-center h-[calc(100vh-5rem)] m-5">
+          <MeCanvas />
+        </div>
+
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={isImageLoaded ? { opacity: 1, scale: 1 } : { opacity: 0 }}
