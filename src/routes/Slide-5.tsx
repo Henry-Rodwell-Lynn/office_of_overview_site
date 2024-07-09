@@ -86,7 +86,7 @@ export default function Slide5() {
               autoPlay
               muted
               loop
-              className="w-[25vw] rounded-xl"
+              className="w-[25vw] rounded-xl none pointer-events-none"
               onCanPlayThrough={() => handleMediaLoad("video")}
               style={{ display: mediaLoaded.video ? "block" : "none" }}
             >
