@@ -39,7 +39,7 @@ export default function Slide3() {
             target="_blank"
           >
             <img
-              src="/EH.png"
+              src="/EH.webp"
               className="h-[500px] rounded-xl"
               onLoad={() => setIsImageLoaded(true)}
               style={{ display: isImageLoaded ? "block" : "none" }}

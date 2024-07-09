@@ -35,7 +35,7 @@ export default function Slide4() {
         >
           <motion.div className="w-full h-full object-cover">
             <img
-              src="/ipad.png"
+              src="/ipad.webp"
               className="object-cover object-center w-full h-full"
               alt="iPad"
               onLoad={() => setIsImageLoaded(true)}

@@ -91,7 +91,7 @@ export default function Slide5() {
               style={{ display: mediaLoaded.video ? "block" : "none" }}
             >
               <source
-                src="/videos/Sequence 01.mp4"
+                src="/videos/Sequence 01.webm"
                 type="video/mp4"
               />
             </video>

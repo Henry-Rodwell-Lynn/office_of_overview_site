@@ -1,6 +1,21 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function Slide6() {
+  const [isMediaLoaded, setIsMediaLoaded] = useState(false);
+  const [loadedCount, setLoadedCount] = useState(0);
+  const totalMediaCount = 10; // Total number of media elements to load
+
+  useEffect(() => {
+    if (loadedCount === totalMediaCount) {
+      setIsMediaLoaded(true);
+    }
+  }, [loadedCount, totalMediaCount]);
+
+  const handleMediaLoad = () => {
+    setLoadedCount((prevCount) => prevCount + 1);
+  };
+
   const containerVariants = {
     hidden: {
       opacity: 0,
@@ -45,40 +60,58 @@ export default function Slide6() {
       {/* Content */}
       <motion.div
         initial="hidden"
-        animate="visible"
+        animate={isMediaLoaded ? "visible" : "hidden"}
         variants={containerVariants}
         className="grid m-5 mt-7 w-[calc(100vw-2rem)] grid-cols-8 h-[calc(100vh-6rem)] items-center gap-4"
       >
         <motion.div
           variants={childVariants}
+          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center col-span-2 justify-end rounded-lg"
+        >
+          <img
+            src="/ipad.webp"
+            className="h-full w-full object-cover rounded-lg"
+            onLoad={handleMediaLoad}
+          />
+        </motion.div>
+
+        <motion.div
+          variants={childVariants}
           className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-end rounded-lg col-span-2"
         >
-          <video autoPlay muted loop className="h-auto w-auto rounded-lg object-cover">
+          <video
+            autoPlay
+            muted
+            loop
+            className="h-auto w-auto rounded-lg object-cover"
+            onLoadedData={handleMediaLoad}
+          >
             <source src="/videos/TD Video 1.webm" type="video/mp4" />
           </video>
         </motion.div>
 
         <motion.div
           variants={childVariants}
-          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center col-span-2 justify-end rounded-lg"
-        >
-          <img src="/TMC2 B.png" className="h-full w-full object-cover rounded-lg"/>
-        </motion.div>
-
-        <motion.div
-          variants={childVariants}
           className="h-[calc(60vh-1rem)] w-full overflow-hidden flex items-center justify-start col-span-4 row-span-2 rounded-lg"
         >
-          <video autoPlay muted loop className="h-full w-full object-cover rounded-lg">
-            <source src="/videos/tmc2.mkv" type="video/mp4" />
-          </video>
+          <img
+            src="/TMC2 B.png"
+            className="h-full w-full object-cover rounded-lg"
+            onLoad={handleMediaLoad}
+          />
         </motion.div>
 
         <motion.div
           variants={childVariants}
           className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-end col-span-2 rounded-lg"
         >
-          <video autoPlay muted loop className="h-auto w-auto object-contain">
+          <video
+            autoPlay
+            muted
+            loop
+            className="h-auto w-auto object-contain"
+            onLoadedData={handleMediaLoad}
+          >
             <source src="/videos/Comp 2.webm" type="video/mp4" />
           </video>
         </motion.div>
@@ -87,41 +120,58 @@ export default function Slide6() {
           variants={childVariants}
           className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-start rounded-lg"
         >
-          <img src="/t (1).png" />
+          <img src="/t (1).png" onLoad={handleMediaLoad} />
         </motion.div>
         <motion.div
           variants={childVariants}
           className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-start rounded-lg"
         >
-          <img src="/t (4).png" />
+          <img src="/t (4).png" onLoad={handleMediaLoad} />
         </motion.div>
         <motion.div
           variants={childVariants}
           className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-start rounded-lg"
         >
-          <img src="/t (2).png" />
+          <img src="/t (2).png" onLoad={handleMediaLoad} />
         </motion.div>
         <motion.div
           variants={childVariants}
           className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-start rounded-lg"
         >
-          <img src="/t (3).png" />
+          <img src="/t (3).png" onLoad={handleMediaLoad} />
+        </motion.div>
+
+        <motion.div
+          variants={childVariants}
+          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-start rounded-lg col-span-2"
+        >
+          <video
+            autoPlay
+            muted
+            loop
+            className="h-full w-full object-cover"
+            onLoadedData={handleMediaLoad}
+          >
+            <source src="/videos/News Article 1.webm" type="video/mp4" />
+          </video>
         </motion.div>
 
         <motion.div
           variants={childVariants}
           className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-end rounded-lg col-span-3"
         >
-          <img src="/ipad.png" />
+          <img src="/IGtmc.png" onLoad={handleMediaLoad} />
         </motion.div>
 
         <motion.div
           variants={childVariants}
-          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center justify-start rounded-lg col-span-3 object-contain"
+          className="h-[calc(30vh-2rem)] w-auto overflow-hidden flex items-center col-span-1 justify-end rounded-lg"
         >
-          <a>
-            <img src="/fill-1.png" className="object-contain w-auto h-auto" />
-          </a>
+          <img
+            src="/fill-1.png"
+            className="h-full w-full object-cover rounded-lg"
+            onLoad={handleMediaLoad}
+          />
         </motion.div>
       </motion.div>
     </div>
