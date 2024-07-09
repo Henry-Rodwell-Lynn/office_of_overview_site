@@ -35,7 +35,7 @@ const MyModel = (props: MyModelProps) => {
       
       // Adjust these multipliers to control the rotation range
       setTargetRotation({ 
-        x: y * Math.PI / 8, // Vertical rotation (nod)
+        x: y / Math.PI / 4, // Vertical rotation (nod)
         y: x * Math.PI / 4 + initialRotation // Horizontal rotation (turn), adjusted for initial rotation
       });
     };
